@@ -1,0 +1,20 @@
+genre,genre_id
+Electronic,0
+Rock,1
+Punk,2
+Experimental,3
+Hip-Hop,4
+Folk,5
+Chiptune / Glitch,6
+Instrumental,7
+Pop,8
+International,9
+Ambient Electronic,10
+Classical,11
+Old-Time / Historic,12
+Jazz,13
+Country,14
+Soul-RnB,15
+Spoken,16
+Blues,17
+Easy Listening,18
