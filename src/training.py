@@ -6,7 +6,6 @@ from imblearn.over_sampling import SMOTE
 pd.set_option('future.no_silent_downcasting', True)
 
 df = pd.read_csv("../data/processed.csv")
-df_genres =  pd.read_csv("../data/genres.csv")
 df = df.copy().drop(columns=["song_id","filename", "filepath", 'Chroma_1', 'Chroma_2', 'Chroma_3', 'Chroma_4',
        'Chroma_5', 'Chroma_6', 'Chroma_7', 'Chroma_8', 'Chroma_9', 'Chroma_10',
        'Chroma_11', 'Chroma_12', 'Spectral_contrast_1', 'Spectral_contrast_2',

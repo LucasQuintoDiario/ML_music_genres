@@ -15,10 +15,11 @@ Este proyecto busca entrenar modelos de Machine Learning para clasificar género
 ## 📂 Estructura del repositorio
 ```
 ML_music_genres/
-│── data/               # Dataset de audio y metadatos
+│── data/               # Datasets con las canciones y características extraidas
 │── notebooks/          # Jupyter Notebooks con descarga de datos, limpieza, entrenamiento y evaluación
-│── models/            # Modelos entrenados
-│── scripts/           # Scripts para preprocesamiento y entrenamiento
+│── modelos/            # Modelos entrenados
+│── src/           # Scripts para preprocesamiento y entrenamiento
+│── streamlit/         # Con los scripts para ejecurtar la demo en streamlit
 │── README.md          # Este archivo 😃
 ```
 
@@ -78,7 +79,7 @@ Este proyecto está bajo la licencia **MIT**. Puedes utilizarlo y modificarlo li
 ---
 
 ## 📬 Contacto
-📧 **Lucas Herranz Vicente**  
+📧 **Lucas Herranz**  
 🔗 [LinkedIn](https://www.linkedin.com/in/lucasherranzvicente/)  
 
 ---
