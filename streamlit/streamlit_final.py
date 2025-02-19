@@ -3,6 +3,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
+from PIL import Image
+
 
 # --- Configuración de la Página ---
 st.set_page_config(
@@ -11,9 +13,37 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Título Principal ---
-st.title("🎶 Predictor de géneros musicales")
-st.markdown("📀 Sube una canción y descubre su genero, tempo y tono con nuestro modelo de Machine Learning.")
+
+
+st.markdown(
+    """
+    <style>
+    /* Fondo de toda la página */
+    .stApp {
+        background-color: #000000;
+    }
+    /* Color del texto */
+    h1, h2, h3, h4, h5, h6, p, div, span, label {
+        color: #FFFFFF;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# --- Cargar e  imagen de cabecera desde canva inyectando codigo HTML --
+
+st.markdown("""
+            <div style="position: relative; width: 100%; height: 0; padding-top: 25.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGfiuQsnbU/EkyqRRsetsB3shKIadWdSQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+""", unsafe_allow_html=True)
+
 
 # --- Cargar modelo y scaler ---
 @st.cache_resource
@@ -61,8 +91,21 @@ if uploaded_file is not None:
             genre_pred = genre_dict.get(pred_class[0], "❓ Estilo desconocido")
 
             # Mostrar la probabilidad de pertenencia a cada categoría
-            st.success(f"**🎶 Estilo Musical Detectado:** {genre_pred}")
-            st.markdown("### Probabilidades de Pertenencia:")
+
+
+
+            st.markdown(
+                f"""
+                <div style="display: flex; flex-direction: column; align-items: left; gap: 10px;">
+                    <div style="background-color: #333333; padding: 10px; border-radius: 10px; text-align: center;">
+                        <h4 style="color: white;">Estilo Musical Detectado: {genre_pred}</h4>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True)
+
+            # st.success(f"**🎶 Estilo Musical Detectado:** {genre_pred}")
+            st.markdown("### Porcentajes de estilos detectados:")
             
             # Mostrar las probabilidades para cada categoría
             categories = list(genre_dict.values())
@@ -89,11 +132,31 @@ if uploaded_file is not None:
 
             with col1:
                 st.subheader("🥁 Tempo Aproximado")
-                st.info(f"**{int(tempo)} BPM** (Beats por Minuto)")
+                st.markdown(
+                f"""
+                <div style="display: flex; flex-direction: column; align-items: left; gap: 10px;">
+                    <div style="background-color: #333333; padding: 10px; border-radius: 10px; text-align: left;">
+                        <h5 style="color: white;font-size: 18px">{int(tempo)} BPM (Beats por Minuto)</h5>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True)
+            
+                # st.info(f"**{int(tempo)} BPM** (Beats por Minuto)")
 
             with col2:
                 st.subheader("🎵 Tono Estimado")
-                st.warning(f"**{estimated_note}** (Nota dominante)")
+                st.markdown(
+                f"""
+                <div style="display: flex;justify-content: center; flex-direction: column; align-items: left; gap: 10px;">
+                    <div style="background-color: #333333; padding: 10px; border-radius: 10px; text-align: left;">
+                        <h5 style="color: white;font-size: 18px">{estimated_note} (Nota dominante)</h5>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True)
+        
+                # st.warning(f"**{estimated_note}** (Nota dominante)")
 
             # --- Recomendación de Playlists ---
             st.subheader("🔊 Playlists Recomendadas")
