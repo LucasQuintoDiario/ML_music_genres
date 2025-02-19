@@ -1,0 +1,36 @@
+# --- Configuración del modelo XGBoost ---
+model:
+  algorithm: xgboost
+  objective: multi:softmax
+  num_class: 4                
+  eval_metric: mlogloss
+  booster: gbtree
+  learning_rate: 0.1          
+  max_depth: 10               
+  min_child_weight: 3
+  subsample: 0.8
+  colsample_bytree: 0.8
+  gamma: 0.1
+  reg_alpha: 0
+  reg_lambda: 1
+  n_estimators: 200       
+  
+# --- Configuración del escalador ---
+scaler:
+  type: MinMaxScaler         
+
+
+# --- Configuración de los datos ---
+data:
+  input_features: 20           
+  target_classes:
+    - "Musica Electrónica"
+    - "Música Rock & derivados"
+    - "Música Clásica & Tradicional"
+    - "🌾 Folk & Indie"
+
+# --- Configuración de entrenamiento ---
+training:
+  train_test_split: 0.8        
+  random_seed: 41              
+  oversampling: true           
