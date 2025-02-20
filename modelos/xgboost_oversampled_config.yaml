@@ -27,7 +27,7 @@ data:
     - "Musica Electrónica"
     - "Música Rock & derivados"
     - "Música Clásica & Tradicional"
-    - "🌾 Folk & Indie"
+    - "Folk & Indie"
 
 # --- Configuración de entrenamiento ---
 training:
